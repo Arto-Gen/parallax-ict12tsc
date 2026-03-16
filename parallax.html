@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JYMIR FOST // INTERFACE</title>
+    <link rel="stylesheet" href="parallax.css">
+</head>
+<body>
+
+    <div id="loading-screen">
+        <div class="loader-content">
+            <div class="glitch-text">INITIALIZING...</div>
+            <div class="progress-container"><div id="progress-bar"></div></div>
+            <p id="loading-status">SYSTEM READY // CLICK TO ENTER</p>
+        </div>
+    </div>
+
+    <nav class="side-nav">
+        <div class="nav-item" onclick="scrollToSection('welcome')">01 WELCOME</div>
+        <div class="nav-item" onclick="scrollToSection('info')">02 INFO</div>
+        <div class="nav-item" onclick="scrollToSection('projects')">03 ARCHIVES</div>
+        <div class="nav-item" onclick="scrollToSection('contact')">04 CONTACT</div>
+    </nav>
+
+    <div id="cursor-dot"></div>
+    <div id="cursor-outline"></div>
+    <div class="monitor-overlay"></div>
+    <audio id="bgm" src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" loop></audio>
+
+    <div class="background-fixed"></div>
+
+    <main class="scroll-container">
+        <section class="panel" id="welcome">
+            <video autoplay muted loop id="welcome-video">
+                <source src="https://assets.mixkit.co/videos/preview/mixkit-abstract-technology-screen-with-blue-lights-1585-large.mp4" type="video/mp4">
+            </video>
+            <div class="ui-wrapper bordered">
+                <div class="tag">01 // WELCOME</div>
+                <h1>JYMIR FOST-ALPHA<br>INTERFACE</h1>
+                <p>JAYMIER JAMES D. FAUSTO</p>
+            </div>
+            <div class="parallax-layer far"></div>
+            <div class="parallax-layer mid"></div>
+        </section>
+
+        <section class="panel" id="info">
+            <div class="ui-wrapper bordered">
+                <div class="tag">02 // INTEL</div>
+                <h2>DATA ARCHIVE: PERSONNEL FILE // CLASSIFIED</h2>
+                <p>Operating as a Polymath-Class Architect, this specialist integrates Nano-Grid Rendering with high-level Logic-Stream Scripting to engineer immersive top-down horror simulations. Beyond visual synthesis, the unit executes Quantum Calculations for fiscal resource management. This operative continues to prototype advanced sustenance protocols and architectural frameworks within the digital frontier.</p>
+            </div>
+        </section>
+
+        <section class="panel" id="projects">
+            <div class="ui-wrapper bordered">
+                <div class="tag">03 // ARCHIVES</div>
+                <h2>PROJECT LOGS</h2>
+                <div class="project-grid">
+                    <a href="https://arto-gen.github.io/scaliber-net/" class="project-btn">
+                        <span class="p-num">01</span>
+                        <span class="p-name">SCALIBER</span>
+                        <span class="p-status">[ LAUNCH ]</span>
+                    </a>
+                    <a href="loading.html" class="project-btn">
+                        <span class="p-num">02</span>
+                        <span class="p-name">NET PORTFOLIO</span>
+                        <span class="p-status">[ ACCESS ]</span>
+                    </a>
+                    <a href="ACT_3.html" class="project-btn">
+                        <span class="p-num">03</span>
+                        <span class="p-name">TACTICAL CLOCK UI</span>
+                        <span class="p-status">[ LAUNCH ]</span>
+
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <section class="panel" id="contact">
+            <div class="ui-wrapper bordered">
+                <div class="tag">04 // CONNECT</div>
+                <h2>SIGNAL TRANSMISSION</h2>
+                <div class="contact-box">
+                    <p style="color: #00ffcc; font-size: 1.2rem; margin-bottom: 5px;">jaymierfausto@gmail.com</p>
+                    <p style="font-size: 0.8rem; opacity: 0.7; margin-bottom: 20px;">BACOOR TERMINAL // PH</p>
+                    <a href="https://www.facebook.com/jaymier.fausto.5" target="_blank" class="fb-btn">ESTABLISH FACEBOOK LINK</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="parallax.js"></script>
+</body>
+</html>

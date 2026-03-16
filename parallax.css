@@ -1,0 +1,199 @@
+:root {
+    --primary: #00ffcc;
+    --bg-dark: #050505;
+}
+
+body, html {
+    margin: 0; padding: 0;
+    background: var(--bg-dark);
+    color: white;
+    font-family: 'Courier New', monospace;
+    cursor: none;
+    overflow-x: hidden;
+}
+
+/* FIXED BACKGROUND */
+.background-fixed {
+    position: fixed; inset: 0;
+    background-image: url('https://web-static.hg-cdn.com/endfield/official-v4/_next/static/media/kv.4584e64b.jpg');
+    background-size: cover; background-position: center;
+    filter: brightness(0.3); z-index: -10;
+}
+
+/* CENTERED LOADING SCREEN FIX */
+#loading-screen {
+    position: fixed; top: 0; left: 0;
+    width: 100vw; height: 100vh;
+    background: black; z-index: 10000;
+    display: flex; justify-content: center; align-items: center;
+    flex-direction: column; text-align: center;
+}
+.loader-content { width: 300px; }
+.progress-container { width: 100%; height: 2px; background: #222; margin-top: 15px; }
+#progress-bar { width: 0%; height: 100%; background: var(--primary); }
+
+/* SECTIONS */
+.panel {
+    min-height: 100vh; width: 100%;
+    display: flex; justify-content: center; align-items: center;
+    text-align: center; position: relative;
+}
+
+/* THE GREEN BORDER BOX */
+.ui-wrapper.bordered {
+    padding: 50px; background: rgba(0, 0, 0, 0.8);
+    border: 1px solid var(--primary);
+    backdrop-filter: blur(10px); width: 85%; max-width: 600px;
+}
+
+/* PROJECT BUTTONS */
+.project-grid { display: flex; flex-direction: column; gap: 10px; margin-top: 20px; }
+.project-btn {
+    display: flex; justify-content: space-between; padding: 15px;
+    border: 1px solid rgba(0, 255, 204, 0.3); color: white;
+    text-decoration: none; transition: 0.3s;
+}
+.project-btn:hover { background: var(--primary); color: black; }
+
+/* NAV & CONTACT BUTTON */
+.side-nav { position: fixed; right: 20px; top: 50%; transform: translateY(-50%); z-index: 1000; }
+.nav-item { padding: 10px; font-size: 0.7rem; cursor: pointer; border-right: 2px solid rgba(0,255,204,0.2); margin: 5px 0; text-align: right; }
+.nav-item:hover { border-right: 2px solid var(--primary); color: var(--primary); }
+.fb-btn { display: inline-block; padding: 12px 25px; border: 1px solid var(--primary); color: var(--primary); text-decoration: none; margin-top: 15px; }
+.fb-btn:hover { background: var(--primary); color: black; }
+
+/* CURSOR & OVERLAYS */
+#cursor-dot { position: fixed; width: 4px; height: 4px; background: var(--primary); border-radius: 50%; z-index: 11000; pointer-events: none; }
+#cursor-outline { position: fixed; width: 30px; height: 30px; border: 1px solid var(--primary); border-radius: 50%; z-index: 11000; pointer-events: none; transition: transform 0.1s; }
+.monitor-overlay { position: fixed; inset: 0; z-index: 5000; pointer-events: none; background: linear-gradient(rgba(0,0,0,0) 50%, rgba(0,0,0,0.1) 50%); background-size: 100% 4px; }
+#welcome-video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0.3; z-index: -1; }
+
+/* Animated Scanline */
+.monitor-overlay::after {
+  content: "";
+  position: absolute;
+  top: 0; left: 0; width: 100%; height: 100%;
+  background: linear-gradient(0deg, rgba(0, 255, 204, 0) 0%, rgba(0, 255, 204, 0.05) 50%, rgba(0, 255, 204, 0) 100%);
+  background-size: 100% 200%;
+  animation: scanline 8s linear infinite;
+}
+
+@keyframes scanline {
+  0% { background-position: 0% -100%; }
+  100% { background-position: 0% 100%; }
+}
+
+/* Glitch Effect for Headers */
+.glitch-text {
+  text-transform: uppercase;
+  position: relative;
+  text-shadow: 0.05em 0 0 rgba(255, 0, 0, 0.75),
+               -0.025em -0.05em 0 rgba(0, 255, 0, 0.75),
+               0.025em 0.05em 0 rgba(0, 0, 255, 0.75);
+  animation: glitch 500ms infinite;
+}
+
+@keyframes glitch {
+  0% { text-shadow: 1px 0 0 red, -1px 0 0 blue; }
+  50% { text-shadow: -1px 0 0 red, 1px 0 0 blue; }
+  100% { text-shadow: 1px 0 0 red, -1px 0 0 blue; }
+}
+
+.ui-wrapper.bordered {
+    /* ... existing styles ... */
+    border: none;
+    border-left: 4px solid var(--primary);
+    clip-path: polygon(0 0, 95% 0, 100% 5%, 100% 100%, 5% 100%, 0 95%);
+    position: relative;
+}
+
+/* Add a decorative "Angle" to the bottom right */
+.ui-wrapper.bordered::after {
+    content: "SECURED_CONNECTION";
+    position: absolute;
+    bottom: 5px;
+    right: 10px;
+    font-size: 10px;
+    color: var(--primary);
+    opacity: 0.5;
+}
+
+/* Container for depth */
+.scroll-container {
+    perspective: 1000px;
+}
+
+.parallax-layer {
+    position: fixed;
+    inset: -10%; /* Extra size so it doesn't crop when moving */
+    pointer-events: none;
+    z-index: -5;
+}
+
+.parallax-layer.far {
+    background: url('https://web-static.hg-cdn.com/endfield/official-v4/_next/static/media/kv.4584e64b.jpg') center/cover;
+    filter: brightness(0.2) saturate(0.5);
+    transform: translateZ(-200px) scale(1.5); /* Pushes it back in 3D space */
+}
+
+.parallax-layer.mid {
+    background-image: radial-gradient(var(--primary) 1px, transparent 1px);
+    background-size: 50px 50px;
+    opacity: 0.1;
+    transform: translateZ(-100px) scale(1.2);
+}
+
+.ui-wrapper.bordered::before {
+    content: "";
+    position: absolute;
+    top: -20px; left: -20px;
+    width: 40px; height: 40px;
+    border-top: 2px solid var(--primary);
+    border-left: 2px solid var(--primary);
+}
+
+/* Add a "Scanning" bar to each section */
+.panel::after {
+    content: "";
+    position: absolute;
+    width: 100%; height: 1px;
+    background: rgba(0, 255, 204, 0.2);
+    top: var(--scan-pos, 0%);
+    animation: scanMove 10s linear infinite;
+}
+
+@keyframes scanMove {
+    0% { top: 0%; }
+    100% { top: 100%; }
+}
+
+.panel {
+    position: relative;
+    overflow: hidden; /* Clips the media so it doesn't bleed into other sections */
+}
+
+.media-layer {
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 120%; /* Extra height for the vertical parallax */
+    z-index: -1;
+    overflow: hidden;
+}
+
+.bg-media {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: brightness(0.4) contrast(1.2) saturate(0.8);
+    transform: scale(1.1); /* Prevents white edges during parallax */
+    transition: filter 0.5s ease;
+}
+
+/* Add a subtle blue/green tint overlay to make images look like HUD data */
+.media-layer::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, rgba(5, 5, 5, 0.8) 0%, rgba(0, 255, 204, 0.05) 50%, rgba(5, 5, 5, 0.8) 100%);
+    pointer-events: none;
+}
